@@ -1,0 +1,1304 @@
+<html><head><base href="https://resumewebsim.example.com/can%20you%20make%20it%20more%20attractive,%20can%20you%20add%20language,%20add%20a%20picture,%20this%20document%20should%20be%20as%20a%20pdf,%20can%20give%20me%20a%20deffirent%20design%20that%20is%20beautiful,can%20you%20give%20a%20possibily%20for%20the%20user%20to%20choose%20a%20design%20of%20her%20choice,%20can%20you%20update%20the%20design%20to%20be%20actrative%20to%20users,%20more%20beautiful%20please,can%20you%20allow%20the%20user%20to%20choose%20the%20color%20of%20each%20design,%20can%20you%20add%20on%20personal%20information%20City,%20State,%20ZIP%20CodeYour%20Address,%20can%20you%20add%20Internship%20Experience,Voluntary%20Work%20/%20Extracurricular%20Activities,Certifications,References,Infos%20++,%20You%20can%20improve%20the%20display%20of%20the%20resume%20to%20make%20it%20much%20more%20visually%20appealing%20and%20well-organized,put%20my%20picture%20on%20my%20left%20,%20and%20the%20personal%20information%20on%20my%20rigth%20,and%20add%20padding%20,generate%20all%20pages,can%20update%20my%20theme,When%20a%20theme%20is%20selected,%20show%20how%20to%20activate%20it">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enhanced Resume Creator Pro - Theme Activation</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;700&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --accent-color: #e74c3c;
+        --background-color: #ecf0f1;
+        --text-color: #34495e;
+        --light-text: #ffffff;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        transition: all 0.5s ease;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px;
+        background: linear-gradient(135deg, #ffffff, #f0f0f0);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-radius: 20px;
+    }
+
+    h1, h2, h3 {
+        font-family: 'Playfair Display', serif;
+        color: var(--primary-color);
+    }
+
+    h1 {
+        font-size: 3.5em;
+        text-align: center;
+        margin-bottom: 40px;
+        letter-spacing: 2px;
+        position: relative;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    h1::after {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+        margin: 20px auto;
+        border-radius: 2px;
+    }
+
+    .section {
+        background-color: #fff;
+        padding: 40px;
+        margin-bottom: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        transition: all 0.5s ease;
+        border: 1px solid rgba(0,0,0,0.05);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    }
+
+    .section h2 {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--accent-color);
+        display: inline-block;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: var(--primary-color);
+        font-size: 1.1em;
+    }
+
+    input[type="text"], textarea, select {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        background-color: #f9f9f9;
+    }
+
+    input[type="text"]:focus, textarea:focus, select:focus {
+        border-color: var(--accent-color);
+        outline: none;
+        box-shadow: 0 0 10px rgba(231,76,60,0.2);
+        background-color: #fff;
+    }
+
+    button {
+        background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        color: var(--light-text);
+        border: none;
+        padding: 15px 30px;
+        cursor: pointer;
+        font-size: 18px;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        margin-top: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+        background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    #resume-preview {
+        margin-top: 50px;
+        background-color: #fff;
+        padding: 60px;
+        border-radius: 15px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    }
+
+    .experience-item, .education-item, .language-item, .internship-item, .voluntary-item, .certification-item, .reference-item {
+        background-color: #f8f9fa;
+        padding: 25px;
+        margin-bottom: 25px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        border-left: 5px solid var(--accent-color);
+    }
+
+    .experience-item:hover, .education-item:hover, .language-item:hover, .internship-item:hover, .voluntary-item:hover, .certification-item:hover, .reference-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .remove-btn {
+        background: linear-gradient(135deg, #ff4081, #ff9100);
+        color: var(--light-text);
+        border: none;
+        padding: 8px 15px;
+        cursor: pointer;
+        font-size: 14px;
+        border-radius: 50px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .remove-btn:hover {
+        background: linear-gradient(135deg, #ff9100, #ff4081);
+        transform: scale(1.05);
+    }
+
+    #photo-preview {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 20px auto;
+        display: block;
+        border: 5px solid var(--secondary-color);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    }
+
+    #photo-preview:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+
+    #photo-upload {
+        display: none;
+    }
+
+    .photo-upload-label {
+        display: inline-block;
+        padding: 12px 25px;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: var(--light-text);
+        cursor: pointer;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        text-align: center;
+        margin-top: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .photo-upload-label:hover {
+        background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    #pdf-button {
+        background: linear-gradient(135deg, #4caf50, #8bc34a);
+        margin-left: 20px;
+    }
+
+    #pdf-button:hover {
+        background: linear-gradient(135deg, #8bc34a, #4caf50);
+    }
+
+    #theme-selector, #color-selector {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    #theme-selector button, #color-selector button {
+        margin: 0 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    }
+
+    #theme-selector button:hover, #color-selector button:hover {
+        background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    }
+
+    .skill-tag {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+        color: var(--light-text);
+        padding: 5px 15px;
+        border-radius: 20px;
+        margin: 5px;
+        font-size: 0.9em;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .skill-tag:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        .section {
+            padding: 30px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        #pdf-button {
+            margin-left: 0;
+            margin-top: 20px;
+        }
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section {
+        animation: fadeInUp 0.6s ease-out;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--accent-color);
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--secondary-color);
+    }
+
+    /* Additional Beautification */
+    .section::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 10px;
+        background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+        border-radius: 10px 10px 0 0;
+    }
+
+    input[type="text"], textarea, select {
+        transition: all 0.3s ease;
+    }
+
+    input[type="text"]:hover, textarea:hover, select:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .form-group label {
+        transition: all 0.3s ease;
+    }
+
+    .form-group:hover label {
+        color: var(--secondary-color);
+        transform: translateX(5px);
+    }
+
+    #resume-preview {
+        position: relative;
+        overflow: hidden;
+    }
+
+    #resume-preview::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+            to bottom right,
+            rgba(255,255,255,0.2) 0%,
+            rgba(255,255,255,0.2) 40%,
+            rgba(255,255,255,0.6) 50%,
+            rgba(255,255,255,0.2) 60%,
+            rgba(255,255,255,0.2) 100%
+        );
+        transform: rotate(30deg);
+        transition: all 0.8s;
+    }
+
+    #resume-preview:hover::after {
+        transform: rotate(30deg) translate(0, 100%);
+    }
+
+    /* Color picker styles */
+    .color-picker {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .color-option {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin: 0 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .color-option:hover {
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Theme Styles */
+    .theme-minimal .resume {
+        font-family: 'Roboto', sans-serif;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    .theme-minimal .resume-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 2px solid #333;
+    }
+
+    .theme-minimal .resume-header .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .theme-minimal .resume-header .personal-info {
+        text-align: right;
+    }
+
+    .theme-minimal .resume-section {
+        margin-top: 30px;
+    }
+
+    .theme-minimal .resume-section h2 {
+        font-size: 1.5em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+
+    .theme-minimal .resume-item {
+        margin-bottom: 20px;
+    }
+
+    .theme-minimal .resume-item h3 {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+
+    .theme-minimal .skill-tag {
+        background: #f0f0f0;
+        color: #333;
+        padding: 5px 10px;
+        margin: 5px;
+        border-radius: 3px;
+    }
+
+    .theme-creative .resume {
+        font-family: 'Montserrat', sans-serif;
+        background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .theme-creative .resume-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .theme-creative .resume-header .profile-photo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 8px solid #fff;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    .theme-creative .resume-section {
+        background: rgba(255,255,255,0.8);
+        padding: 30px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+    }
+
+    .theme-creative .resume-section h2 {
+        color: #ff6b6b;
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    .theme-creative .resume-item {
+        border-left: 3px solid #ff6b6b;
+        padding-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    .theme-creative .skill-tag {
+        background: #ff6b6b;
+        color: #fff;
+        padding: 8px 15px;
+        border-radius: 25px;
+        font-weight: bold;
+    }
+
+    .theme-professional .resume {
+        font-family: 'Lato', sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 40px;
+        box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    }
+
+    .theme-professional .resume-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .theme-professional .resume-header .profile-photo {
+        width: 120px;
+        height: 120px;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+
+    .theme-professional .resume-header .personal-info {
+        text-align: right;
+    }
+
+    .theme-professional .resume-section {
+        margin-bottom: 30px;
+    }
+
+    .theme-professional .resume-section h2 {
+        color: #2c3e50;
+        font-size: 1.8em;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .theme-professional .resume-item {
+        margin-bottom: 20px;
+    }
+
+    .theme-professional .resume-item h3 {
+        color: #34495e;
+        font-size: 1.3em;
+        margin-bottom: 5px;
+    }
+
+    .theme-professional .skill-tag {
+        background: #ecf0f1;
+        color: #34495e;
+        padding: 5px 10px;
+        border-radius: 3px;
+        font-size: 0.9em;
+    }
+
+    /* Theme Activation Styles */
+    .theme-activation {
+        background-color: #f8f9fa;
+        border: 2px solid var(--accent-color);
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+
+    .theme-activation:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .theme-activation h3 {
+        color: var(--primary-color);
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    .theme-activation p {
+        color: var(--text-color);
+        font-size: 1.1em;
+        line-height: 1.6;
+    }
+
+    .theme-activation code {
+        background-color: #e9ecef;
+        padding: 3px 6px;
+        border-radius: 4px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.9em;
+    }
+
+    /* Improved Resume Preview Styles */
+    .resume {
+        font-family: 'Open Sans', sans-serif;
+        color: #333;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .resume-header {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: #fff;
+        padding: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    .resume-header .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid #fff;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        margin-right: 40px;
+    }
+
+    .resume-header .personal-info {
+        flex: 1;
+    }
+
+    .resume-header h1 {
+        font-size: 2.5em;
+        margin: 0 0 10px 0;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .resume-header p {
+        font-size: 1.1em;
+        margin: 5px 0;
+    }
+
+    .resume-body {
+        padding: 40px;
+    }
+
+    .resume-section {
+        margin-bottom: 30px;
+    }
+
+    .resume-section h2 {
+        color: var(--primary-color);
+        font-size: 1.8em;
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .resume-item {
+        margin-bottom: 20px;
+    }
+
+    .resume-item h3 {
+        color: var(--secondary-color);
+        font-size: 1.3em;
+        margin-bottom: 5px;
+    }
+
+    .resume-item p {
+        margin: 5px 0;
+    }
+
+    .resume-item .date {
+        font-style: italic;
+        color: #777;
+    }
+
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .skill-tag {
+        background-color: var(--accent-color);
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.9em;
+    }
+
+    .language-item, .reference-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .language-item:last-child, .reference-item:last-child {
+        border-bottom: none;
+    }
+
+    @media print {
+        body {
+            background: none;
+        }
+        .resume {
+            box-shadow: none;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enhanced Resume Creator Pro</h1>
+
+        <div id="theme-selector">
+            <button onclick="changeTheme('modern')">Modern Theme</button>
+            <button onclick="changeTheme('minimal')">Minimal Theme</button>
+            <button onclick="changeTheme('creative')">Creative Theme</button>
+            <button onclick="changeTheme('professional')">Professional Theme</button>
+        </div>
+
+        <div id="color-selector">
+            <h2>Choose Your Color Scheme</h2>
+            <div class="color-picker">
+                <div class="color-option" style="background-color: #2c3e50;" onclick="changeColor('#2c3e50', '#3498db', '#e74c3c')"></div>
+                <div class="color-option" style="background-color: #27ae60;" onclick="changeColor('#27ae60', '#2ecc71', '#f39c12')"></div>
+                <div class="color-option" style="background-color: #8e44ad;" onclick="changeColor('#8e44ad', '#9b59b6', '#f1c40f')"></div>
+                <div class="color-option" style="background-color: #2980b9;" onclick="changeColor('#2980b9', '#3498db', '#e67e22')"></div>
+                <div class="color-option" style="background-color: #c0392b;" onclick="changeColor('#c0392b', '#e74c3c', '#f39c12')"></div>
+            </div>
+        </div>
+
+        <div class="theme-activation" id="theme-activation" style="display: none;">
+            <h3>Theme Activation</h3>
+            <p>To activate the selected theme, add the following class to your resume container:</p>
+            <code id="theme-class"></code>
+        </div>
+
+        <div class="section">
+            <h2>Personal Information</h2>
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required placeholder="johndoe@example.com">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" placeholder="(123) 456-7890">
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" placeholder="123 Main St">
+            </div>
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" placeholder="Anytown">
+            </div>
+            <div class="form-group">
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" placeholder="CA">
+            </div>
+            <div class="form-group">
+                <label for="zip">ZIP Code:</label>
+                <input type="text" id="zip" name="zip" placeholder="12345">
+            </div>
+            <div class="form-group">
+                <label for="photo-upload" class="photo-upload-label">Upload Photo</label>
+                <input type="file" id="photo-upload" accept="image/*" onchange="previewPhoto(event)">
+            </div>
+            <img id="photo-preview" src="https://via.placeholder.com/200" alt="Profile photo preview">
+        </div>
+
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <div class="form-group">
+                <label for="summary">Summary:</label>
+                <textarea id="summary" name="summary" rows="4" placeholder="Brief overview of your professional experience and goals"></textarea>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Work Experience</h2>
+            <div id="experience-container"></div>
+            <button onclick="addExperience()">Add Experience</button>
+        </div>
+
+        <div class="section">
+            <h2>Internship Experience</h2>
+            <div id="internship-container"></div>
+            <button onclick="addInternship()">Add Internship</button>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <div id="education-container"></div>
+            <button onclick="addEducation()">Add Education</button>
+        </div>
+
+        <div class="section">
+            <h2>Skills</h2>
+            <div class="form-group">
+                <label for="skills">Skills (comma-separated):</label>
+                <input type="text" id="skills" name="skills" placeholder="e.g., JavaScript, Project Management, Data Analysis">
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Languages</h2>
+            <div id="language-container"></div>
+            <button onclick="addLanguage()">Add Language</button>
+        </div>
+
+        <div class="section">
+            <h2>Voluntary Work / Extracurricular Activities</h2>
+            <div id="voluntary-container"></div>
+            <button onclick="addVoluntary()">Add Voluntary Work</button>
+        </div>
+
+        <div class="section">
+            <h2>Certifications</h2>
+            <div id="certification-container"></div>
+            <button onclick="addCertification()">Add Certification</button>
+        </div>
+
+        <div class="section">
+            <h2>References</h2>
+            <div id="reference-container"></div>
+            <button onclick="addReference()">Add Reference</button>
+        </div>
+
+        <button onclick="generateResume()">Generate Resume</button>
+        <button id="pdf-button" onclick="generatePDF()">Export as PDF</button>
+
+        <div id="resume-preview"></div>
+    </div>
+
+    <script>
+        let experienceCount = 0;
+        let educationCount = 0;
+        let languageCount = 0;
+        let internshipCount = 0;
+        let voluntaryCount = 0;
+        let certificationCount = 0;
+        let referenceCount = 0;
+        let currentTheme = 'modern';
+
+        function changeTheme(theme) {
+            currentTheme = theme;
+            document.body.className = `theme-${theme}`;
+            document.getElementById('theme-activation').style.display = 'block';
+            document.getElementById('theme-class').textContent = `theme-${theme}`;
+            generateResume(); // Regenerate resume with new theme
+        }
+
+        function changeColor(primary, secondary, accent) {
+            document.documentElement.style.setProperty('--primary-color', primary);
+            document.documentElement.style.setProperty('--secondary-color', secondary);
+            document.documentElement.style.setProperty('--accent-color', accent);
+            generateResume(); // Regenerate resume with new colors
+        }
+
+        function addExperience() {
+            const container = document.getElementById('experience-container');
+            const experienceDiv = document.createElement('div');
+            experienceDiv.className = 'experience-item';
+            experienceDiv.innerHTML = `
+                <h3>Experience ${++experienceCount}</h3>
+                <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+                <div class="form-group">
+                    <label for="job-title-${experienceCount}">Job Title:</label>
+                    <input type="text" id="job-title-${experienceCount}" name="job-title-${experienceCount}" placeholder="Software Developer">
+                </div>
+                <div class="form-group">
+                    <label for="company-${experienceCount}">Company:</label>
+                    <input type="text" id="company-${experienceCount}" name="company-${experienceCount}" placeholder="Tech Solutions Inc">
+                </div>
+                <div class="form-group">
+                    <label for="start-date-${experienceCount}">Start Date:</label>
+                    <input type="text" id="start-date-${experienceCount}" name="start-date-${experienceCount}" placeholder="MM/YYYY">
+                </div>
+                <div class="form-group">
+                    <label for="end-date-${experienceCount}">End Date:</label>
+                    <input type="text" id="end-date-${experienceCount}" name="end-date-${experienceCount}" placeholder="MM/YYYY or Present">
+                </div>
+                <div class="form-group">
+                    <label for="responsibilities-${experienceCount}">Responsibilities:</label>
+                    <textarea id="responsibilities-${experienceCount}" name="responsibilities-${experienceCount}" rows="4" placeholder="List your key responsibilities and achievements"></textarea>
+                </div>
+            `;
+            container.appendChild(experienceDiv);
+        }
+
+        function addEducation() {
+            const container = document.getElementById('education-container');
+            const educationDiv = document.createElement('div');
+            educationDiv.className = 'education-item';
+            educationDiv.innerHTML = `
+                <h3>Education ${++educationCount}</h3>
+                <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+                <div class="form-group">
+                    <label for="degree-${educationCount}">Degree:</label>
+                    <input type="text" id="degree-${educationCount}" name="degree-${educationCount}" placeholder="Bachelor of Science in Computer Science">
+                </div>
+                <div class="form-group">
+                    <label for="institution-${educationCount}">Institution:</label>
+                    <input type="text" id="institution-${educationCount}" name="institution-${educationCount}" placeholder="University of Technology">
+                </div>
+                <div class="form-group">
+                    <label for="graduation-date-${educationCount}">Graduation Date:</label>
+                    <input type="text" id="graduation-date-${educationCount}" name="graduation-date-${educationCount}" placeholder="MM/YYYY">
+                </div>
+            `;
+            container.appendChild(educationDiv);
+        }
+
+        function addLanguage() {
+            const container = document.getElementById('language-container');
+            const languageDiv = document.createElement('div');
+            languageDiv.className = 'language-item';
+            languageDiv.innerHTML = `
+                <h3>Language ${++languageCount}</h3>
+                <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+                <div class="form-group">
+                    <label for="language-${languageCount}">Language:</label>
+                    <input type="text" id="language-${languageCount}" name="language-${languageCount}" placeholder="English">
+                </div>
+                <div class="form-group">
+                    <label for="proficiency-${languageCount}">Proficiency:</label>
+                    <select id="proficiency-${languageCount}" name="proficiency-${languageCount}">
+                        <option value="Native">Native</option>
+                        <option value="Fluent">Fluent</option>
+                        <option value="Advanced">Advanced</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Basic">Basic</option>
+                    </select>
+                </div>
+            `;
+            container.appendChild(languageDiv);
+        }
+
+        function addInternship() {
+            const container = document.getElementById('internship-container');
+            const internshipDiv = document.createElement('div');
+            internshipDiv.className = 'internship-item';
+            internshipDiv.innerHTML = `
+                <h3>Internship ${++internshipCount}</h3>
+                <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+                <div class="form-group">
+                    <label for="internship-title-${internshipCount}">Internship Title:</label>
+                    <input type="text" id="internship-title-${internshipCount}" name="internship-title-${internshipCount}" placeholder="Software Engineering Intern">
+                </div>
+                <div class="form-group">
+                    <label for="internship-company-${internshipCount}">Company:</label>
+                    <input type="text" id="internship-company-${internshipCount}" name="internship-company-${internshipCount}" placeholder="Tech Innovations Inc">
+                </div>
+                <div class="form-group">
+                    <label for="internship-start-date-${internshipCount}">Start Date:</label>
+                    <input type="text" id="internship-start-date-${internshipCount}" name="internship-start-date-${internshipCount}" placeholder="MM/YYYY">
+                </div>
+                <div class="form-group">
+                    <label for="internship-end-date-${internshipCount}">End Date:</label>
+                    <input type="text" id="internship-end-date-${internshipCount}" name="internship-end-date-${internshipCount}" placeholder="MM/YYYY">
+                </div>
+                <div class="form-group">
+                    <label for="internship-responsibilities-${internshipCount}">Responsibilities:</label>
+                    <textarea id="internship-responsibilities-${internshipCount}" name="internship-responsibilities-${internshipCount}" rows="4" placeholder="List your key responsibilities and achievements during the internship"></textarea>
+                </div>
+            `;
+            container.appendChild(internshipDiv);
+        }
+
+        function addVoluntary() {
+            const container = document.getElementById('voluntary-container');
+            const voluntaryDiv = document.createElement('div');
+            voluntaryDiv.className = 'voluntary-item';
+            voluntaryDiv.innerHTML = `
+                <h3>Voluntary Work ${++voluntaryCount}</h3>
+                <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+                <div class="form-group">
+                    <label for="voluntary-title-${voluntaryCount}">Title/Role:</label>
+                    <input type="text" id="voluntary-title-${voluntaryCount}" name="voluntary-title-${voluntaryCount}" placeholder="Volunteer Tutor">
+                </div>
+                <div class="form-group">
+                    <label for="voluntary-organization-${voluntaryCount}">Organization:</label>
+                    <input type="text" id="voluntary-organization-${voluntaryCount}" name="voluntary-organization-${voluntaryCount}" placeholder="Local Community Center">
+                </div>
+                <div class="form-group">
+                    <label for="voluntary-start-date-${voluntaryCount}">Start Date:</label>
+                    <input type="text" id="voluntary-start-date-${voluntaryCount}" name="voluntary-start-date-${voluntaryCount}" placeholder="MM/YYYY">
+                </div>
+                <div class="form-group">
+                    <label for="voluntary-end-date-${voluntaryCount}">End Date:</label>
+                    <input type="text" id="voluntary-end-date-${voluntaryCount}" name="voluntary-end-date-${voluntaryCount}" placeholder="MM/YYYY or Present">
+                </div>
+                <div class="form-group">
+                    <label for="voluntary-description-${voluntaryCount}">Description:</label>
+                    <textarea id="voluntary-description-${voluntaryCount}" name="voluntary-description-${voluntaryCount}" rows="4" placeholder="Describe your role and achievements"></textarea>
+                </div>
+            `;
+            container.appendChild(voluntaryDiv);
+        }
+
+        function addCertification() {
+            const container = document.getElementById('certification-container');
+            const certificationDiv = document.createElement('div');
+            certificationDiv.className = 'certification-item';
+            certificationDiv.innerHTML = `
+                <h3>Certification ${++certificationCount}</h3>
+                <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+                <div class="form-group">
+                    <label for="certification-name-${certificationCount}">Certification Name:</label>
+                    <input type="text" id="certification-name-${certificationCount}" name="certification-name-${certificationCount}" placeholder="AWS Certified Solutions Architect">
+                </div>
+                <div class="form-group">
+                    <label for="certification-issuer-${certificationCount}">Issuing Organization:</label>
+                    <input type="text" id="certification-issuer-${certificationCount}" name="certification-issuer-${certificationCount}" placeholder="Amazon Web Services">
+                </div>
+                <div class="form-group">
+                    <label for="certification-date-${certificationCount}">Date Obtained:</label>
+                    <input type="text" id="certification-date-${certificationCount}" name="certification-date-${certificationCount}" placeholder="MM/YYYY">
+                </div>
+                <div class="form-group">
+                    <label for="certification-expiry-${certificationCount}">Expiry Date (if applicable):</label>
+                    <input type="text" id="certification-expiry-${certificationCount}" name="certification-expiry-${certificationCount}" placeholder="MM/YYYY or N/A">
+                </div>
+            `;
+            container.appendChild(certificationDiv);
+        }
+
+        function addReference() {
+            const container = document.getElementById('reference-container');
+            const referenceDiv = document.createElement('div');
+            referenceDiv.className = 'reference-item';
+            referenceDiv.innerHTML = `
+                <h3>Reference ${++referenceCount}</h3>
+                <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+                <div class="form-group">
+                    <label for="reference-name-${referenceCount}">Name:</label>
+                    <input type="text" id="reference-name-${referenceCount}" name="reference-name-${referenceCount}" placeholder="John Smith">
+                </div>
+                <div class="form-group">
+                    <label for="reference-title-${referenceCount}">Title:</label>
+                    <input type="text" id="reference-title-${referenceCount}" name="reference-title-${referenceCount}" placeholder="Senior Manager">
+                </div>
+                <div class="form-group">
+                    <label for="reference-company-${referenceCount}">Company:</label>
+                    <input type="text" id="reference-company-${referenceCount}" name="reference-company-${referenceCount}" placeholder="Tech Solutions Inc">
+                </div>
+                <div class="form-group">
+                    <label for="reference-email-${referenceCount}">Email:</label>
+                    <input type="text" id="reference-email-${referenceCount}" name="reference-email-${referenceCount}" placeholder="john.smith@techsolutions.com">
+                </div>
+                <div class="form-group">
+                    <label for="reference-phone-${referenceCount}">Phone:</label>
+                    <input type="text" id="reference-phone-${referenceCount}" name="reference-phone-${referenceCount}" placeholder="(123) 456-7890">
+                </div>
+            `;
+            container.appendChild(referenceDiv);
+        }
+
+        function removeItem(button) {
+            button.parentElement.remove();
+        }
+
+        function previewPhoto(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('photo-preview').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function generateResume() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const state = document.getElementById('state').value;
+            const zip = document.getElementById('zip').value;
+            const summary = document.getElementById('summary').value;
+            const skills = document.getElementById('skills').value;
+            const photo = document.getElementById('photo-preview').src;
+
+            let resumeHTML = `
+                <div class="resume theme-${currentTheme}">
+                    <div class="resume-header">
+                        <img src="${photo}" alt="${name}" class="profile-photo">
+                        <div class="personal-info">
+                            <h1>${name}</h1>
+                            <p>${email} | ${phone}</p>
+                            <p>${address}, ${city}, ${state} ${zip}</p>
+                        </div>
+                    </div>
+                    <div class="resume-body">
+                        <div class="resume-section">
+                            <h2>Professional Summary</h2>
+                            <p>${summary}</p>
+                        </div>
+                        <div class="resume-section">
+                            <h2>Skills</h2>
+                            <div class="skills-list">
+                                ${skills.split(',').map(skill => `<span class="skill-tag">${skill.trim()}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div class="resume-section">
+                            <h2>Work Experience</h2>
+                            ${generateExperienceHTML()}
+                        </div>
+                        <div class="resume-section">
+                            <h2>Internship Experience</h2>
+                            ${generateInternshipHTML()}
+                        </div>
+                        <div class="resume-section">
+                            <h2>Education</h2>
+                            ${generateEducationHTML()}
+                        </div>
+                        <div class="resume-section">
+                            <h2>Languages</h2>
+                            ${generateLanguageHTML()}
+                        </div>
+                        <div class="resume-section">
+                            <h2>Voluntary Work / Extracurricular Activities</h2>
+                            ${generateVoluntaryHTML()}
+                        </div>
+                        <div class="resume-section">
+                            <h2>Certifications</h2>
+                            ${generateCertificationHTML()}
+                        </div>
+                        <div class="resume-section">
+                            <h2>References</h2>
+                            ${generateReferenceHTML()}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('resume-preview').innerHTML = resumeHTML;
+        }
+
+        function generateExperienceHTML() {
+            let html = '';
+            for (let i = 1; i <= experienceCount; i++) {
+                const jobTitle = document.getElementById(`job-title-${i}`).value;
+                const company = document.getElementById(`company-${i}`).value;
+                const startDate = document.getElementById(`start-date-${i}`).value;
+                const endDate = document.getElementById(`end-date-${i}`).value;
+                const responsibilities = document.getElementById(`responsibilities-${i}`).value;
+
+                html += `
+                    <div class="resume-item">
+                        <h3>${jobTitle} at ${company}</h3>
+                        <p class="date">${startDate} - ${endDate}</p>
+                        <p>${responsibilities}</p>
+                    </div>
+                `;
+            }
+            return html;
+        }
+
+        function generateEducationHTML() {
+            let html = '';
+            for (let i = 1; i <= educationCount; i++) {
+                const degree = document.getElementById(`degree-${i}`).value;
+                const institution = document.getElementById(`institution-${i}`).value;
+                const graduationDate = document.getElementById(`graduation-date-${i}`).value;
+
+                html += `
+                    <div class="resume-item">
+                        <h3>${degree}</h3>
+                        <p>${institution}</p>
+                        <p class="date">Graduated: ${graduationDate}</p>
+                    </div>
+                `;
+            }
+            return html;
+        }
+
+        function generateLanguageHTML() {
+            let html = '';
+            for (let i = 1; i <= languageCount; i++) {
+                const language = document.getElementById(`language-${i}`).value;
+                const proficiency = document.getElementById(`proficiency-${i}`).value;
+
+                html += `
+                    <div class="language-item">
+                        <span>${language}</span>
+                        <span>${proficiency}</span>
+                    </div>
+                `;
+            }
+            return html;
+        }
+
+        function generateInternshipHTML() {
+            let html = '';
+            for (let i = 1; i <= internshipCount; i++) {
+                const title = document.getElementById(`internship-title-${i}`).value;
+                const company = document.getElementById(`internship-company-${i}`).value;
+                const startDate = document.getElementById(`internship-start-date-${i}`).value;
+                const endDate = document.getElementById(`internship-end-date-${i}`).value;
+                const responsibilities = document.getElementById(`internship-responsibilities-${i}`).value;
+
+                html += `
+                    <div class="resume-item">
+                        <h3>${title} at ${company}</h3>
+                        <p class="date">${startDate} - ${endDate}</p>
+                        <p>${responsibilities}</p>
+                    </div>
+                `;
+            }
+            return html;
+        }
+
+        function generateVoluntaryHTML() {
+            let html = '';
+            for (let i = 1; i <= voluntaryCount; i++) {
+                const title = document.getElementById(`voluntary-title-${i}`).value;
+                const organization = document.getElementById(`voluntary-organization-${i}`).value;
+                const startDate = document.getElementById(`voluntary-start-date-${i}`).value;
+                const endDate = document.getElementById(`voluntary-end-date-${i}`).value;
+                const description = document.getElementById(`voluntary-description-${i}`).value;
+
+                html += `
+                    <div class="resume-item">
+                        <h3>${title} at ${organization}</h3>
+                        <p class="date">${startDate} - ${endDate}</p>
+                        <p>${description}</p>
+                    </div>
+                `;
+            }
+            return html;
+        }
+
+        function generateCertificationHTML() {
+            let html = '';
+            for (let i = 1; i <= certificationCount; i++) {
+                const name = document.getElementById(`certification-name-${i}`).value;
+                const issuer = document.getElementById(`certification-issuer-${i}`).value;
+                const date = document.getElementById(`certification-date-${i}`).value;
+                const expiry = document.getElementById(`certification-expiry-${i}`).value;
+
+                html += `
+                    <div class="resume-item">
+                        <h3>${name}</h3>
+                        <p>Issued by: ${issuer}</p>
+                        <p class="date">Obtained: ${date}</p>
+                        <p>Expires: ${expiry}</p>
+                    </div>
+                `;
+            }
+            return html;
+        }
+
+        function generateReferenceHTML() {
+            let html = '';
+            for (let i = 1; i <= referenceCount; i++) {
+                const name = document.getElementById(`reference-name-${i}`).value;
+                const title = document.getElementById(`reference-title-${i}`).value;
+                const company = document.getElementById(`reference-company-${i}`).value;
+                const email = document.getElementById(`reference-email-${i}`).value;
+                const phone = document.getElementById(`reference-phone-${i}`).value;
+
+                html += `
+                    <div class="reference-item">
+                        <h3>${name}</h3>
+                        <p>${title} at ${company}</p>
+                        <p>Email: ${email}</p>
+                        <p>Phone: ${phone}</p>
+                    </div>
+                `;
+            }
+            return html;
+        }
+
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            const resumeElement = document.querySelector('.resume');
+            html2canvas(resumeElement).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const imgProps = doc.getImageProperties(imgData);
+                const pdfWidth = doc.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                
+                doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                doc.save('resume.pdf');
+            });
+        }
+
+        // Initialize with one experience and education field
+        addExperience();
+        addEducation();
+    </script>
+</body>
+</html>
